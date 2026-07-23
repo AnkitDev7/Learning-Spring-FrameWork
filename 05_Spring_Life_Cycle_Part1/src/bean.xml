@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean class="mainApp.Account" id="acc">
+        <property name="accNo" value="1212" ></property>
+        <property name="bankName" value="bname"></property>
+    </bean>
+
+<!--    <bean class="mainApp.objectFactory" id="employee" factory-method="getObject">-->
+<!--        <property name="account" ref="acc"></property>-->
+<!--    </bean>-->
+
+    <bean id="objectFactory" class="mainApp.objectFactory">
+        <property name="account" ref="acc"></property>
+    </bean>
+
+    <bean id="emp" factory-bean="objectFactory" factory-method="getObject">
+    </bean>
+
+</beans>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean class="myApp.Employee" id="employee" autowire="constructor">
+        <property name="empId" value="101"></property>
+    </bean>
+
+    <bean class="myApp.Account" id="account">
+        <property name="accNo" value="1231"></property>
+        <property name="bankName" value="PUNB"></property>
+    </bean>
+
+    <bean class="myApp.Account" id="account2" primary="true">
+        <property name="accNo" value="3437"></property>
+        <property name="bankName" value="PUNB"></property>
+    </bean>
+
+
+    <bean class="myApp.Car" id="car">
+        <property name="carName" value="Toyota"></property>
+        <property name="carNumber" value="123"></property>
+    </bean>
+
+    <util:list id="listOfBook">
+        <value>Java</value>
+        <value>JDBC</value>
+        <value>JPA</value>
+        <value>Hibernate</value>
+    </util:list>
+
+
+</beans>

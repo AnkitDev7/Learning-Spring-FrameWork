@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!-- Bean definitions here -->
+
+    <bean id="parentBean" abstract="true">
+        <property name="countryCode" value="1122"></property>
+        <property name="url" value="jdbc://mysql://localhost:3306"></property>
+    </bean>
+
+    <bean class="mainApp.Employee" id="emp" parent="parentBean" >
+        <property name="eid" value="123412"></property>
+    </bean>
+
+    <bean class="mainApp.Manager" id="man" parent="parentBean">
+        <property name="magid" value="1212"></property>
+    </bean>
+
+    <bean class="mainApp.Student" id="stu" parent="parentBean">
+        <property name="url" value="jdbc://mysql://localhost:3308"></property>  <!--  We can Override  -->
+        <property name="rollId" value="1321"></property>
+    </bean>
+
+</beans>
